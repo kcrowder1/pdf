@@ -1,0 +1,18 @@
+{
+  "name": "jsreport",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gcloud services enable run.googleapis.com&&gcloud functions deploy jsreport --memory=512MB --gen2 --region=us-central1 --runtime=nodejs20 --source=. --entry-point=jsreport --trigger-http --allow-unauthenticated",
+    "gcp-build": "node node_modules/puppeteer/install.mjs"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.2",
+    "@jsreport/jsreport-core": "4.5.0",
+    "@jsreport/jsreport-chrome-pdf": "4.1.0",
+    "@jsreport/jsreport-handlebars": "4.0.1"
+  }
+}
