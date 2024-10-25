@@ -2,6 +2,11 @@ const jsreport = require('@jsreport/jsreport-core')();
 jsreport.use(require('@jsreport/jsreport-chrome-pdf')());
 jsreport.use(require('@jsreport/jsreport-handlebars')());
 exports.pdf = async (req, res) => {
+  await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox'],
+    executablePath: '/usr/bin/google-chrome',
+  });
   await jsreport.init();
   const result = await jsreport.render({
     template: {
