@@ -15,3 +15,19 @@ exports.pdf = async () => {
   });
   result.send(result.content.toString('base64'));
 };
+
+// const ppp = async () => {
+//   await jsreport.init();
+//   const result = await jsreport.render({
+//     template: {
+//       content: '<h1>Hello {{foo}}</h1>',
+//       engine: 'handlebars',
+//       recipe: 'chrome-pdf',
+//     },
+//     data: {
+//       foo: 'world',
+//     },
+//   });
+//   console.log(result.content.toString('base64'));
+// };
+// ppp();
