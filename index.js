@@ -1,7 +1,7 @@
 const jsreport = require('@jsreport/jsreport-core')();
 jsreport.use(require('@jsreport/jsreport-chrome-pdf')());
 jsreport.use(require('@jsreport/jsreport-handlebars')());
-const getPdf = async () => {
+exports.pdf = async () => {
   await jsreport.init();
   const result = await jsreport.render({
     template: {
@@ -13,7 +13,5 @@ const getPdf = async () => {
       foo: 'world',
     },
   });
-  console.log(result.content.toString('base64'));
+  result.send(result.content.toString('base64'));
 };
-
-getPdf();
