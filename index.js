@@ -1,7 +1,7 @@
 const jsreport = require('@jsreport/jsreport-core')();
 jsreport.use(require('@jsreport/jsreport-chrome-pdf')());
 jsreport.use(require('@jsreport/jsreport-handlebars')());
-exports.pdf = async () => {
+exports.pdf = async (req, res) => {
   await jsreport.init();
   const result = await jsreport.render({
     template: {
@@ -13,7 +13,7 @@ exports.pdf = async () => {
       foo: 'world',
     },
   });
-  result.send(result.content.toString('base64'));
+  res.send(result.content.toString('base64'));
 };
 
 // const ppp = async () => {
